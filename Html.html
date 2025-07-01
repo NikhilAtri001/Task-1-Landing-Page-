@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hocco Ice Cream</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('Hocco_SC_Illustrations5.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(255, 105, 180, 0.9);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .logo img {
+      height: 60px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background-color: #ff85c1;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      background: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 5px;
+      min-width: 150px;
+      z-index: 999;
+    }
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    .dropdown-menu li {
+      padding: 0.5rem 1rem;
+    }
+    .dropdown-menu li a {
+      display: block;
+      color: #333;
+    }
+    .hero {
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      text-align: center;
+      padding: 120px 20px;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      animation: slideIn 1s ease-out forwards;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      animation: fadeIn 2s ease-in forwards;
+    }
+    .cta-button {
+      background-color: #fff;
+      color: #ff1493;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #ffd1dc;
+      transform: scale(1.05);
+    }
+    .features {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .features h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #ff1493;
+    }
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .feature-card {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      max-width: 300px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-10px);
+    }
+    .feature-card img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+      border-radius: 10px;
+    }
+    .feature-card h3 {
+      margin-bottom: 10px;
+      color: #ff1493;
+    }
+    .feature-card p {
+      font-size: 0.95rem;
+    }
+    .video-section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .video-section video {
+      max-width: 90%;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .contact {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .contact form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .contact input, .contact textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    .contact button {
+      background-color: #ff69b4;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .contact button:hover {
+      background-color: #ff1493;
+    }
+    footer {
+      background-color: rgba(255, 105, 180, 0.9);
+      text-align: center;
+      padding: 1rem;
+      color: white;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: underline;
+      margin: 0 0.5rem;
+    }
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .feature-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><img src="Hocco.png" alt="Hocco Logo"></div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Features ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Premium Ingredients</a></li>
+            <li><a href="#">Exciting Flavors</a></li>
+            <li><a href="#">Family Friendly</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Products ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Bix Sandwich</a></li>
+            <li><a href="#">Aamchi Mango</a></li>
+            <li><a href="#">Hazelnut Cone</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Welcome to Hocco Ice Cream</h1>
+    <p>Scooping happiness in every bite – delicious, creamy, and made with love!</p>
+    <a href="#" class="cta-button">Get Started</a>
+  </section>
+
+  <section class="features">
+    <h2>Our Star Products</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <img src="Bix.png" alt="Bix Cake Sandwich">
+        <h3>Bix Cake Sandwich</h3>
+        <p>Cookies & Cream heaven sandwiched with love and fun!</p>
+      </div>
+      <div class="feature-card">
+        <img src="Aamchi-removebg-preview.png" alt="Aamchi Mango">
+        <h3>Aamchi Mango</h3>
+        <p>Mango magic in every scoop – desi, juicy, and nostalgic!</p>
+      </div>
+      <div class="feature-card">
+        <img src="Crunch.png" alt="Hazelnut Cone">
+        <h3>Hazelnut Mudslide</h3>
+        <p>Crunchy outside, creamy inside – your perfect chocoholic fix!</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="video-section">
+    <h2>Watch Our Cool Festive Video!</h2>
+    <video controls>
+      <source src="Hocco V.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Designed By Nikhil Atri. All rights reserved.</p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+  </footer>
+</body>
+</html>
